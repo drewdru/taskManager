@@ -1,0 +1,104 @@
+﻿@{
+    ViewBag.Title = "Home Page";    
+}
+
+<div class="container">
+    <div class="col-md-1">        
+        <div class="navTree">
+            <div class="navTreeStartFunc">
+                <ul class="nav tree-func">
+                    <li><a class="test" href="#AddLead">Добавить новую задачу</a></li>
+                    <hr>
+                </ul>
+            </div>
+            <div class="navTreeFunc hidden">
+                <ul class="nav tree-func">
+                    <li><a class="test" href="#AddLead">Добавить новую задачу</a></li>
+                    <li><a class="test" href="#EditLead">Редактировать задачу</a></li>                    
+                    <li><a class="test" href="#AddSubLead">Добавить подзадачу</a></li>
+                    <li><a class="test" href="#DeleteLead">Удалить задачу</a></li>
+                    <hr>
+                </ul>
+            </div>     
+            @Html.Raw(@ViewBag.Tree)
+        </div>
+    </div>           
+    <div id="contentDiv" class="col-md-9">
+        <div class="tabs">
+            <div id="StartTab" class="tab active">                
+                <h3>Задача не выбрана</h3>
+            </div>
+            <div id="AddLead" class="tab">
+                <h3>Добавление задачи</h3>
+                <form id="ajaxAddLead" method="post" action="/Home/InsertLead">
+                    @RenderPage("AddLead.cshtml")
+                </form>                
+            </div>
+            <div id="AddSubLead" class="tab">
+                <h3>Добавление задачи</h3>
+                <form id="ajaxAddSubLead" method="post" action="/Home/InsertLead">
+                    @RenderPage("AddLead.cshtml")
+                </form>
+            </div>            
+            <div id="EditLead" class="tab">
+                <h3>Редактирование задачи</h3>
+                <form id="ajaxEditLead" method="post" action="/Home/UpdateLead">
+                    <div class="field">
+                        <label for="title">Заголовок:</label>
+                        <input type="text" id="title" class="title" name="title">
+                    </div>
+                    <div class="field">
+                        <label for="status">Статус:</label>
+                        @*<input type="text" id="status" class="status" name="status">*@
+                        <select id="status" class="status" name="status">
+                            <option selected value="0">Назначена</option>
+                            <option value="1">Выполняется</option>
+                            <option value="2">Приостановлена</option>
+                            <option value="3">Завершена</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="executors">Исполнители:</label>
+                        <input type="text" id="executors" class="executors" name="executors">
+                    </div>
+                    <div class="field">
+                        <label for="descript">Описание:</label>
+                        <textarea id="descript" class="descript" name="descript"></textarea>
+                    </div>
+                    <div class="field hidden">
+                        <label for="id">id:</label>
+                        <input type="number" id="id" class="id" name="id" value="-1">
+                    </div>
+                    <div class="field hidden">
+                        <label for="completion_date">completion_date:</label>
+                        <input type="text" id="completion_date" class="completion_date" name="completion_date">
+                    </div>
+                    <div id="EditLead-messages"></div>
+                    <div class="field">
+                        <button type="submit" class="button-submit">Отправить</button>
+                    </div>                  
+                </form>                
+            </div>
+            <div id="DeleteLead" class="tab">
+                <h3>Вы уверены, что хотите удалить задачу?</h3>
+                <form id="ajaxDeleteSubLead" method="post" action="/Home/DeleteLead">
+                    <div class="field hidden">
+                        <label for="id">id:</label>
+                        <input type="text" id="id" class="id" name="id" value="-1">
+                    </div>
+                    <div class="field">
+                        <p><a href="/" class="button-cancel">Отменить</a></p>
+                    </div>           
+                    <div id="DeleteLead-messages"></div>          
+                    <div class="field">
+                        <button type="submit" class="button-submit">Да</button>
+                    </div> 
+                </form>                
+            </div>
+            @Html.Raw(@ViewBag.LeadTabs)            
+        </div>
+    </div>   
+</div>
+
+
+

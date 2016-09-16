@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DataSource" Class="LinqWorkerDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=localhost;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DataSourceConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.LeadsTree" Member="LeadsTrees">
+    <Type Name="LeadsTree">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="title" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="descript" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="executors" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="lead_status" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="start_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="[plan]" Member="plan" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="lead_time" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="completion_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="LeadsTree_LeadsTreePath" Member="LeadsTreePaths" ThisKey="id" OtherKey="ancestor" Type="LeadsTreePath" />
+      <Association Name="LeadsTree_LeadsTreePath1" Member="LeadsTreePaths1" ThisKey="id" OtherKey="descendant" Type="LeadsTreePath" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LeadsTreePath" Member="LeadsTreePaths">
+    <Type Name="LeadsTreePath">
+      <Column Name="tpid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ancestor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="descendant" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="LeadsTree_LeadsTreePath" Member="LeadsTree" ThisKey="ancestor" OtherKey="id" Type="LeadsTree" IsForeignKey="true" />
+      <Association Name="LeadsTree_LeadsTreePath1" Member="LeadsTree1" ThisKey="descendant" OtherKey="id" Type="LeadsTree" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

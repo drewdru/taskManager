@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @*@Scripts.Render("//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js")
+    @Styles.Render("//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css")*@
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")   
+    
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-default">
+        <div class="container">
+            <div class="navbar-header">   
+                @Html.ActionLink("TasksApp", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })             
+                @*<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>*@
+                <button type="button" class="navbar-toggle tasks">
+                    <span aria-hidden="true" class="glyphicon glyphicon-th-list"></span>
+                </button>                
+            </div>
+            @*<div class="navbar-collapse collapse">                
+                @*<ul class="nav navbar-nav">
+                    <li><a href="#Leads">Задачи</a></li>                    
+                    <li><a href="#AddLead">Новая задача</a></li>
+                    <li>@Html.ActionLink("Всё дерево", "GetAllTree", "Home")</li>
+                    <li>@Html.ActionLink("Тест", "Test", "Home")</li>
+                </ul>*@
+                @*@Html.Partial("_LoginPartial")*@
+            @* </div>*@
+        </div>
+    </div>    
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")    
+    @RenderSection("scripts", required: false)
+    @Scripts.Render("~/Scripts/JS/navTree.js")
+</body>
+</html>

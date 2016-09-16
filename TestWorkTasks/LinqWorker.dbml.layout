@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="LinqWorker">
+  <DataContextMoniker Name="/LinqWorkerDataContext" />
+  <nestedChildShapes>
+    <classShape Id="3f453070-8912-43f5-aac7-fca45adc8c5e" absoluteBounds="0.75, 1, 2, 2.7340723177790638">
+      <DataClassMoniker Name="/LinqWorkerDataContext/LeadsTree" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8e9e2457-e709-49a3-9753-9a5afafadfe1" absoluteBounds="0.765, 1.46, 1.9700000000000002, 2.1740723177790642" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="14e22bf2-520a-4512-b9a6-de04220828ae" absoluteBounds="3.5, 1.625, 2, 1.4694238504767416">
+      <DataClassMoniker Name="/LinqWorkerDataContext/LeadsTreePath" />
+      <nestedChildShapes>
+        <elementListCompartment Id="90029de4-06c5-423c-a216-7227c251b08d" absoluteBounds="3.515, 2.085, 1.9700000000000002, 0.90942385047674179" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.35971192523837); (3.5 : 2.35971192523837)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqWorkerDataContext/LeadsTree/LeadsTree_LeadsTreePath" />
+      <nodes>
+        <classShapeMoniker Id="3f453070-8912-43f5-aac7-fca45adc8c5e" />
+        <classShapeMoniker Id="14e22bf2-520a-4512-b9a6-de04220828ae" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.92985596261919); (3.5 : 1.92985596261919)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqWorkerDataContext/LeadsTree/LeadsTree_LeadsTreePath1" />
+      <nodes>
+        <classShapeMoniker Id="3f453070-8912-43f5-aac7-fca45adc8c5e" />
+        <classShapeMoniker Id="14e22bf2-520a-4512-b9a6-de04220828ae" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
